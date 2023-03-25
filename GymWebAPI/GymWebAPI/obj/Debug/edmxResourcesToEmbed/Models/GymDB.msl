@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GymDBModelStoreContainer" CdmEntityContainer="GymDBEntities">
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="GymDBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGymExpenses">
+      <EntityTypeMapping TypeName="GymDBModel.tblGymExpens">
+        <MappingFragment StoreEntitySet="tblGymExpenses">
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExpensesId" ColumnName="ExpensesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGymMbrs">
+      <EntityTypeMapping TypeName="GymDBModel.tblGymMbr">
+        <MappingFragment StoreEntitySet="tblGymMbrs">
+          <ScalarProperty Name="MbrGender" ColumnName="MbrGender" />
+          <ScalarProperty Name="GeneralDesc" ColumnName="GeneralDesc" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="MbrPTCharges" ColumnName="MbrPTCharges" />
+          <ScalarProperty Name="MbrMob2" ColumnName="MbrMob2" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="SalId" ColumnName="SalId" />
+          <ScalarProperty Name="MbrShipId" ColumnName="MbrShipId" />
+          <ScalarProperty Name="MbrPincode" ColumnName="MbrPincode" />
+          <ScalarProperty Name="MbrState" ColumnName="MbrState" />
+          <ScalarProperty Name="MbrCity" ColumnName="MbrCity" />
+          <ScalarProperty Name="MbrAddr" ColumnName="MbrAddr" />
+          <ScalarProperty Name="MbrEmail" ColumnName="MbrEmail" />
+          <ScalarProperty Name="MbrDOE" ColumnName="MbrDOE" />
+          <ScalarProperty Name="MbrMarrialStatus" ColumnName="MbrMarrialStatus" />
+          <ScalarProperty Name="MbrDOB" ColumnName="MbrDOB" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGymProfiles">
+      <EntityTypeMapping TypeName="GymDBModel.tblGymProfile">
+        <MappingFragment StoreEntitySet="tblGymProfile">
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="GSTNo" ColumnName="GSTNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="MemberShipStatus" ColumnName="MemberShipStatus" />
+          <ScalarProperty Name="GymMemberShipId" ColumnName="GymMemberShipId" />
+          <ScalarProperty Name="EMailId" ColumnName="EMailId" />
+          <ScalarProperty Name="GymName" ColumnName="GymName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="GymProfileId" ColumnName="GymProfileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMbrShipPlans">
+      <EntityTypeMapping TypeName="GymDBModel.tblMbrShipPlan">
+        <MappingFragment StoreEntitySet="tblMbrShipPlan">
+          <ScalarProperty Name="PlanType" ColumnName="PlanType" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EndDt" ColumnName="EndDt" />
+          <ScalarProperty Name="StartDt" ColumnName="StartDt" />
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="MbrShipDurationInDays" ColumnName="MbrShipDurationInDays" />
+          <ScalarProperty Name="MbrShipAmt" ColumnName="MbrShipAmt" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrShipId" ColumnName="MbrShipId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMbrShipPlanUsers">
+      <EntityTypeMapping TypeName="GymDBModel.tblMbrShipPlanUser">
+        <MappingFragment StoreEntitySet="tblMbrShipPlanUsers">
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="IsRenewed" ColumnName="IsRenewed" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+          <ScalarProperty Name="RemBalance" ColumnName="RemBalance" />
+          <ScalarProperty Name="sessionTime" ColumnName="sessionTime" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="Discription" ColumnName="Discription" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="Disscount" ColumnName="Disscount" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrShipId" ColumnName="MbrShipId" />
+          <ScalarProperty Name="MbrUserId" ColumnName="MbrUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSalaries">
+      <EntityTypeMapping TypeName="GymDBModel.TblSalary">
+        <MappingFragment StoreEntitySet="TblSalary">
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="Sal_Desc" ColumnName="Sal_Desc" />
+          <ScalarProperty Name="Sal_Amt" ColumnName="Sal_Amt" />
+          <ScalarProperty Name="emp_Id" ColumnName="emp_Id" />
+          <ScalarProperty Name="sal_Id" ColumnName="sal_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllMembersDetails" FunctionName="GymDBModel.Store.SP_GetAllMembersDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetAllMembersDetails_Result">
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrDOB" ColumnName="MbrDOB" />
+          <ScalarProperty Name="MbrMarrialStatus" ColumnName="MbrMarrialStatus" />
+          <ScalarProperty Name="MbrDOE" ColumnName="MbrDOE" />
+          <ScalarProperty Name="MbrEmail" ColumnName="MbrEmail" />
+          <ScalarProperty Name="MbrGender" ColumnName="MbrGender" />
+          <ScalarProperty Name="MbrAddr" ColumnName="MbrAddr" />
+          <ScalarProperty Name="MbrCity" ColumnName="MbrCity" />
+          <ScalarProperty Name="MbrState" ColumnName="MbrState" />
+          <ScalarProperty Name="MbrPincode" ColumnName="MbrPincode" />
+          <ScalarProperty Name="MbrMob2" ColumnName="MbrMob2" />
+          <ScalarProperty Name="MbrPTCharges" ColumnName="MbrPTCharges" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="MbrShipId" ColumnName="MbrShipId" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrShipDurationInDays" ColumnName="MbrShipDurationInDays" />
+          <ScalarProperty Name="MbrShipAmt" ColumnName="MbrShipAmt" />
+          <ScalarProperty Name="StartDt" ColumnName="StartDt" />
+          <ScalarProperty Name="EndDt" ColumnName="EndDt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="MbrUserId" ColumnName="MbrUserId" />
+          <ScalarProperty Name="sal_Id" ColumnName="sal_Id" />
+          <ScalarProperty Name="MbrSalary" ColumnName="MbrSalary" />
+          <ScalarProperty Name="SalDesc" ColumnName="SalDesc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllPTMembers" FunctionName="GymDBModel.Store.SP_GetAllPTMembers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetAllPTMembers_Result">
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="MbrUserId" ColumnName="MbrUserId" />
+          <ScalarProperty Name="MbrShipId" ColumnName="MbrShipId" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetBishiProfiteLossDetails" FunctionName="GymDBModel.Store.SP_GetBishiProfiteLossDetails" />
+    <FunctionImportMapping FunctionImportName="SP_GetEnquiryMembersDetails" FunctionName="GymDBModel.Store.SP_GetEnquiryMembersDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetEnquiryMembersDetails_Result">
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="EnquiryFor" ColumnName="EnquiryFor" />
+          <ScalarProperty Name="enquiryDate" ColumnName="enquiryDate" />
+          <ScalarProperty Name="ExpectedDtToJoin" ColumnName="ExpectedDtToJoin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetGymMbrHistory" FunctionName="GymDBModel.Store.SP_GetGymMbrHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetGymMbrHistory_Result">
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrShipAmt" ColumnName="MbrShipAmt" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetGymMembersCounts" FunctionName="GymDBModel.Store.SP_GetGymMembersCounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetGymMembersCounts_Result">
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetGymProfile" FunctionName="GymDBModel.Store.SP_GetGymProfile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetGymProfile_Result">
+          <ScalarProperty Name="GymProfileId" ColumnName="GymProfileId" />
+          <ScalarProperty Name="GymName" ColumnName="GymName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EMailId" ColumnName="EMailId" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="mbrShipStatus" ColumnName="mbrShipStatus" />
+          <ScalarProperty Name="GSTNo" ColumnName="GSTNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetInvoice" FunctionName="GymDBModel.Store.SP_GetInvoice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetInvoice_Result">
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="GymName" ColumnName="GymName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetMemberProfile" FunctionName="GymDBModel.Store.SP_GetMemberProfile">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetMemberProfile_Result">
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="MbrGender" ColumnName="MbrGender" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrDOB" ColumnName="MbrDOB" />
+          <ScalarProperty Name="MbrMarrialStatus" ColumnName="MbrMarrialStatus" />
+          <ScalarProperty Name="MbrDOE" ColumnName="MbrDOE" />
+          <ScalarProperty Name="MbrEmail" ColumnName="MbrEmail" />
+          <ScalarProperty Name="MbrAddr" ColumnName="MbrAddr" />
+          <ScalarProperty Name="MbrCity" ColumnName="MbrCity" />
+          <ScalarProperty Name="MbrState" ColumnName="MbrState" />
+          <ScalarProperty Name="MbrPincode" ColumnName="MbrPincode" />
+          <ScalarProperty Name="MbrMob2" ColumnName="MbrMob2" />
+          <ScalarProperty Name="MbrPTCharges" ColumnName="MbrPTCharges" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="GeneralDesc" ColumnName="GeneralDesc" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="MbrShipAmt" ColumnName="MbrShipAmt" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+          <ScalarProperty Name="RemBalance" ColumnName="RemBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetMembershipGoingtoExxpiredMembers" FunctionName="GymDBModel.Store.SP_GetMembershipGoingtoExxpiredMembers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetMembershipGoingtoExxpiredMembers_Result">
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="RemBalance" ColumnName="RemBalance" />
+          <ScalarProperty Name="RemainingDays" ColumnName="RemainingDays" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetMembershipReport" FunctionName="GymDBModel.Store.SP_GetMembershipReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetMembershipReport_Result">
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="TotalMembers" ColumnName="TotalMembers" />
+          <ScalarProperty Name="TotalEarn" ColumnName="TotalEarn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetMemberYeayrlyReport" FunctionName="GymDBModel.Store.SP_GetMemberYeayrlyReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetMemberYeayrlyReport_Result">
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrDOB" ColumnName="MbrDOB" />
+          <ScalarProperty Name="MbrMarrialStatus" ColumnName="MbrMarrialStatus" />
+          <ScalarProperty Name="MbrEmail" ColumnName="MbrEmail" />
+          <ScalarProperty Name="MbrAddr" ColumnName="MbrAddr" />
+          <ScalarProperty Name="MbrCity" ColumnName="MbrCity" />
+          <ScalarProperty Name="MbrState" ColumnName="MbrState" />
+          <ScalarProperty Name="MbrPincode" ColumnName="MbrPincode" />
+          <ScalarProperty Name="MbrPTCharges" ColumnName="MbrPTCharges" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="GeneralDesc" ColumnName="GeneralDesc" />
+          <ScalarProperty Name="MbrGender" ColumnName="MbrGender" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+          <ScalarProperty Name="RemBalance" ColumnName="RemBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetPaymentDtls" FunctionName="GymDBModel.Store.SP_GetPaymentDtls">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetPaymentDtls_Result">
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrShipAmt" ColumnName="MbrShipAmt" />
+          <ScalarProperty Name="MbrShipDurationInDays" ColumnName="MbrShipDurationInDays" />
+          <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetPTReport" FunctionName="GymDBModel.Store.SP_GetPTReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetPTReport_Result">
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetRemainingBalance" FunctionName="GymDBModel.Store.SP_GetRemainingBalance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetRemainingBalance_Result">
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrBatch" ColumnName="MbrBatch" />
+          <ScalarProperty Name="MbrMob" ColumnName="MbrMob" />
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="lastPaidAmt" ColumnName="lastPaidAmt" />
+          <ScalarProperty Name="LastPaidBy" ColumnName="LastPaidBy" />
+          <ScalarProperty Name="PaidDt" ColumnName="PaidDt" />
+          <ScalarProperty Name="RemBalance" ColumnName="RemBalance" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
+          <ScalarProperty Name="MbrShipId" ColumnName="MbrShipId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetSalesReportByMonths" FunctionName="GymDBModel.Store.SP_GetSalesReportByMonths">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetSalesReportByMonths_Result">
+          <ScalarProperty Name="Months" ColumnName="Months" />
+          <ScalarProperty Name="Amt" ColumnName="Amt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetSummaryReport" FunctionName="GymDBModel.Store.SP_GetSummaryReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetSummaryReport_Result">
+          <ScalarProperty Name="MbrShipName" ColumnName="MbrShipName" />
+          <ScalarProperty Name="MbrshipStartDt" ColumnName="MbrshipStartDt" />
+          <ScalarProperty Name="MbrshipEndDt" ColumnName="MbrshipEndDt" />
+          <ScalarProperty Name="TotalMembers" ColumnName="TotalMembers" />
+          <ScalarProperty Name="TotalEarn" ColumnName="TotalEarn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="TblMbrTypes">
+      <EntityTypeMapping TypeName="GymDBModel.TblMbrType">
+        <MappingFragment StoreEntitySet="TblMbrTypes">
+          <ScalarProperty Name="Types" ColumnName="Types" />
+          <ScalarProperty Name="MbrTypesId" ColumnName="MbrTypesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="GymDBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="GymDBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="GymDBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="GymDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="TblSalaryMsts">
+      <EntityTypeMapping TypeName="GymDBModel.TblSalaryMst">
+        <MappingFragment StoreEntitySet="TblSalaryMst">
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDt" ColumnName="LastUpdatedDt" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="TotalLeaves" ColumnName="TotalLeaves" />
+          <ScalarProperty Name="PaidSal" ColumnName="PaidSal" />
+          <ScalarProperty Name="TotalSal" ColumnName="TotalSal" />
+          <ScalarProperty Name="SalPaidDt" ColumnName="SalPaidDt" />
+          <ScalarProperty Name="SalMonth" ColumnName="SalMonth" />
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="SalMst_Id" ColumnName="SalMst_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllSalaryMstDetails" FunctionName="GymDBModel.Store.SP_GetAllSalaryMstDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetAllSalaryMstDetails_Result">
+          <ScalarProperty Name="MbrName" ColumnName="MbrName" />
+          <ScalarProperty Name="MbrType" ColumnName="MbrType" />
+          <ScalarProperty Name="SalMst_Id" ColumnName="SalMst_Id" />
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="SalMonth" ColumnName="SalMonth" />
+          <ScalarProperty Name="SalPaidDt" ColumnName="SalPaidDt" />
+          <ScalarProperty Name="TotalSal" ColumnName="TotalSal" />
+          <ScalarProperty Name="PaidSal" ColumnName="PaidSal" />
+          <ScalarProperty Name="TotalLeaves" ColumnName="TotalLeaves" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllSalaryMstDetailsByMbr" FunctionName="GymDBModel.Store.SP_GetAllSalaryMstDetailsByMbr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GymDBModel.SP_GetAllSalaryMstDetailsByMbr_Result">
+          <ScalarProperty Name="SalMst_Id" ColumnName="SalMst_Id" />
+          <ScalarProperty Name="MbrId" ColumnName="MbrId" />
+          <ScalarProperty Name="SalMonth" ColumnName="SalMonth" />
+          <ScalarProperty Name="SalPaidDt" ColumnName="SalPaidDt" />
+          <ScalarProperty Name="TotalSal" ColumnName="TotalSal" />
+          <ScalarProperty Name="PaidSal" ColumnName="PaidSal" />
+          <ScalarProperty Name="TotalLeaves" ColumnName="TotalLeaves" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

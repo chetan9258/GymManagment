@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GymDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="GymDBModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="GymDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="GymDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="tblGymBranch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BranchAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchPinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentBranch" Type="Boolean" Nullable="false" />
+    <Property Name="PhotoURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AddedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblMbrType">
+    <Key>
+      <PropertyRef Name="MbrTypesId" />
+    </Key>
+    <Property Name="MbrTypesId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Types" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSalary">
+    <Key>
+      <PropertyRef Name="sal_Id" />
+    </Key>
+    <Property Name="sal_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emp_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Sal_Amt" Type="Int32" />
+    <Property Name="Sal_Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblSalaryMst">
+    <Key>
+      <PropertyRef Name="salMst_Id" />
+    </Key>
+    <Property Name="salMst_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emp_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="salMst_Date" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="emp_leaves" Type="Int32" />
+    <Property Name="emp_LeaveDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emp_SalaryPaid" Type="Int32" />
+    <Property Name="Last_ModifiedDate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AddedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblUserProfile">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="AddedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="GymDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="tblGymBranches" EntityType="Self.tblGymBranch" />
+    <EntitySet Name="TblMbrTypes" EntityType="Self.TblMbrType" />
+    <EntitySet Name="TblSalaries" EntityType="Self.TblSalary" />
+    <EntitySet Name="TblSalaryMsts" EntityType="Self.TblSalaryMst" />
+    <EntitySet Name="TblUserProfiles" EntityType="Self.TblUserProfile" />
+    <FunctionImport Name="SP_GetBishiProfiteLossDetails">
+      <Parameter Name="BishiId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetDashboardData" ReturnType="Collection(GymDBModel.SP_GetDashboardData_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetPaymentDtls" ReturnType="Collection(GymDBModel.SP_GetPaymentDtls_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="AspNetUsers" EntityType="GymDBModel.AspNetUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="GymDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="GymDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="GymDBModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="tblMbrShipPlans" EntityType="GymDBModel.tblMbrShipPlan" />
+    <FunctionImport Name="SP_GetAllPTMembers" ReturnType="Collection(GymDBModel.SP_GetAllPTMembers_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetMembershipGoingtoExxpiredMembers" ReturnType="Collection(GymDBModel.SP_GetMembershipGoingtoExxpiredMembers_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblMbrShipPlanUsers" EntityType="GymDBModel.tblMbrShipPlanUser" />
+    <EntitySet Name="tblGymMbrs" EntityType="GymDBModel.tblGymMbr" />
+    <FunctionImport Name="SP_GetAllMembersDetails" ReturnType="Collection(GymDBModel.SP_GetAllMembersDetails_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetRemainingBalance" ReturnType="Collection(GymDBModel.SP_GetRemainingBalance_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetGymMbrHistory" ReturnType="Collection(GymDBModel.SP_GetGymMbrHistory_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblGymProfiles" EntityType="GymDBModel.tblGymProfile" />
+    <FunctionImport Name="SP_GetGymProfile" ReturnType="Collection(GymDBModel.SP_GetGymProfile_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblGymExpenses" EntityType="GymDBModel.tblGymExpens" />
+  </EntityContainer>
+  <ComplexType Name="SP_GetDashboardData_Result">
+    <Property Type="String" Name="MbrType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="count" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GetPaymentDtls_Result">
+    <Property Type="String" Name="MbrId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MbrName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MbrType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrShipName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="MbrShipAmt" Nullable="false" />
+    <Property Type="Int32" Name="MbrShipDurationInDays" Nullable="false" />
+    <Property Type="Int32" Name="PaidAmt" Nullable="false" />
+    <Property Type="String" Name="PaidBy" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="PaidDt" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MembershipType" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="GymDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="GymDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="GymDBModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="GymDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GymDBModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="GymDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GymDBModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="GymDBModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="GymDBModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="tblMbrShipPlan">
+    <Key>
+      <PropertyRef Name="MbrShipId" />
+    </Key>
+    <Property Name="MbrShipId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MbrShipName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrShipAmt" Type="Int32" Nullable="false" />
+    <Property Name="MbrShipDurationInDays" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AddedDate" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="StartDt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EndDt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PlanType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="SP_GetAllPTMembers_Result">
+    <Property Type="String" Name="MbrId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MbrName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MbrMob" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrUserId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="MbrShipId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="TrainerId" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="PaidAmt" Nullable="true" />
+    <Property Type="String" Name="PaidBy" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PaidDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SP_GetMembershipGoingtoExxpiredMembers_Result">
+    <Property Type="String" Name="MbrId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MbrName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MbrMob" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrBatch" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrShipName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MembershipType" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="PaidAmt" Nullable="true" />
+    <Property Type="String" Name="PaidDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="RemBalance" Nullable="true" />
+    <Property Type="Int32" Name="RemainingDays" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblMbrShipPlanUser">
+    <Key>
+      <PropertyRef Name="MbrUserId" />
+    </Key>
+    <Property Name="MbrUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MbrShipId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MbrId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PaidAmt" Type="Int32" />
+    <Property Name="PaidBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Disscount" Type="Int32" Nullable="false" />
+    <Property Name="PaidDt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MbrshipStartDt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MbrshipEndDt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MembershipType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sessionTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RemBalance" Type="Int32" />
+    <Property Name="TrainerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsRenewed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblGymMbr">
+    <Key>
+      <PropertyRef Name="MbrId" />
+    </Key>
+    <Property Name="MbrId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MbrName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrMob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrDOB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MbrMarrialStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MbrDOE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MbrEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrAddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrPincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrShipId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SalId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedDt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <Property Name="MbrMob2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MbrPTCharges" Type="Int32" />
+    <Property Name="MbrBatch" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GeneralDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="addedDate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MbrGender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="SP_GetAllMembersDetails_Result">
+    <Property Type="String" Name="MbrId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MbrName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MbrType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrMob" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrDOB" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrMarrialStatus" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrDOE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrEmail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrGender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MbrAddr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrCity" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrState" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrPincode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrMob2" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MbrPTCharges" Nullable="true" />
+    <Property Type="String" Name="MbrBatch" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrShipId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="MbrShipName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MbrShipDurationInDays" Nullable="true" />
+    <Property Type="Int32" Name="MbrShipAmt" Nullable="true" />
+    <Property Type="String" Name="StartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EndDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="Int32" Name="PaidAmt" Nullable="true" />
+    <Property Type="String" Name="PaidBy" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PaidDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrUserId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="sal_Id" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="MbrSalary" Nullable="true" />
+    <Property Type="String" Name="SalDesc" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SP_GetRemainingBalance_Result">
+    <Property Type="String" Name="MbrId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MbrName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MbrBatch" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrMob" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MbrShipName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="lastPaidAmt" Nullable="true" />
+    <Property Type="String" Name="LastPaidBy" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PaidDt" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="RemBalance" Nullable="true" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MembershipType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrShipId" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="SP_GetGymMbrHistory_Result">
+    <Property Type="String" Name="MbrId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="MbrName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MbrBatch" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrShipName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MbrShipAmt" Nullable="true" />
+    <Property Type="Int32" Name="PaidAmt" Nullable="true" />
+    <Property Type="String" Name="PaidBy" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PaidDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MembershipType" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="tblGymProfile">
+    <Key>
+      <PropertyRef Name="GymProfileId" />
+    </Key>
+    <Property Name="GymProfileId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GymName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EMailId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GymMemberShipId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MemberShipStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GSTNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="SP_GetGymProfile_Result">
+    <Property Type="String" Name="GymProfileId" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="GymName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="LName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="EMailId" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrShipName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PaidAmt" Nullable="true" />
+    <Property Type="String" Name="MbrshipStartDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MbrshipEndDt" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="mbrShipStatus" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="GSTNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Website" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="tblGymExpens">
+    <Key>
+      <PropertyRef Name="ExpensesId" />
+    </Key>
+    <Property Name="ExpensesId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ExpenseDate" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AddedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

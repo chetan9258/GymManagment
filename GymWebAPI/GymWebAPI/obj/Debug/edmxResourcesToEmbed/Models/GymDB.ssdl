@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GymDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblGymExpenses">
+    <Key>
+      <PropertyRef Name="ExpensesId" />
+    </Key>
+    <Property Name="ExpensesId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="20" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="ExpenseDate" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="SubCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdatedDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblGymMbrs">
+    <Key>
+      <PropertyRef Name="MbrId" />
+    </Key>
+    <Property Name="MbrId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MbrName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MbrType" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrMob" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrDOB" Type="nvarchar" MaxLength="20" />
+    <Property Name="MbrMarrialStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="MbrDOE" Type="nvarchar" MaxLength="20" />
+    <Property Name="MbrEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrAddr" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrState" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrPincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrShipId" Type="nvarchar" MaxLength="128" />
+    <Property Name="SalId" Type="nvarchar" MaxLength="128" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="LastUpdatedDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="isDeleted" Type="bit" />
+    <Property Name="MbrMob2" Type="nvarchar" MaxLength="50" />
+    <Property Name="MbrPTCharges" Type="int" />
+    <Property Name="MbrBatch" Type="nvarchar" MaxLength="20" />
+    <Property Name="GeneralDesc" Type="nvarchar" MaxLength="100" />
+    <Property Name="MbrGender" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblGymProfile">
+    <Key>
+      <PropertyRef Name="GymProfileId" />
+    </Key>
+    <Property Name="GymProfileId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FName" Type="nvarchar" MaxLength="20" />
+    <Property Name="LName" Type="nvarchar" MaxLength="20" />
+    <Property Name="GymName" Type="nvarchar" MaxLength="20" />
+    <Property Name="EMailId" Type="nvarchar" MaxLength="20" />
+    <Property Name="GymMemberShipId" Type="nvarchar" MaxLength="128" />
+    <Property Name="MemberShipStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Website" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="20" />
+    <Property Name="GSTNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastUpdatedDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblMbrShipPlan">
+    <Key>
+      <PropertyRef Name="MbrShipId" />
+    </Key>
+    <Property Name="MbrShipId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MbrShipName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MbrShipAmt" Type="int" Nullable="false" />
+    <Property Name="MbrShipDurationInDays" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LastUpdatedDt" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="StartDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="EndDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" />
+    <Property Name="PlanType" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tblMbrShipPlanUsers">
+    <Key>
+      <PropertyRef Name="MbrUserId" />
+    </Key>
+    <Property Name="MbrUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MbrShipId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MbrId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PaidAmt" Type="int" />
+    <Property Name="PaidBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Disscount" Type="int" Nullable="false" />
+    <Property Name="PaidDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="Discription" Type="nvarchar(max)" />
+    <Property Name="MbrshipStartDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="MbrshipEndDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="MembershipType" Type="nvarchar" MaxLength="20" />
+    <Property Name="sessionTime" Type="nvarchar" MaxLength="20" />
+    <Property Name="RemBalance" Type="int" />
+    <Property Name="TrainerId" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsRenewed" Type="bit" />
+    <Property Name="LastUpdatedDt" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMbrTypes">
+    <Key>
+      <PropertyRef Name="MbrTypesId" />
+    </Key>
+    <Property Name="MbrTypesId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Types" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSalary">
+    <Key>
+      <PropertyRef Name="sal_Id" />
+    </Key>
+    <Property Name="sal_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="emp_Id" Type="nvarchar" MaxLength="128" />
+    <Property Name="Sal_Amt" Type="int" />
+    <Property Name="Sal_Desc" Type="nvarchar" MaxLength="150" />
+    <Property Name="LastUpdatedDt" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSalaryMst">
+    <Key>
+      <PropertyRef Name="SalMst_Id" />
+    </Key>
+    <Property Name="SalMst_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MbrId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="SalMonth" Type="nvarchar" MaxLength="20" />
+    <Property Name="SalPaidDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="TotalSal" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaidSal" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalLeaves" Type="int" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastUpdatedDt" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_GetAllMembersDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllPTMembers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllSalaryMstDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllSalaryMstDetailsByMbr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MbrId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetBishiProfiteLossDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BishiId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEnquiryMembersDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetGymMbrHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetGymMembersCounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetGymProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MbrUserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetMemberProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+    <Parameter Name="MbrId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetMembershipGoingtoExxpiredMembers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetMembershipReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetMemberYeayrlyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MbrId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetPaymentDtls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetPTReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetRemainingBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetSalesReportByMonths" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetSummaryReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="GymDBModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGymExpenses" EntityType="Self.tblGymExpenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGymMbrs" EntityType="Self.tblGymMbrs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGymProfile" EntityType="Self.tblGymProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMbrShipPlan" EntityType="Self.tblMbrShipPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMbrShipPlanUsers" EntityType="Self.tblMbrShipPlanUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblMbrTypes" EntityType="Self.TblMbrTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblSalary" EntityType="Self.TblSalary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblSalaryMst" EntityType="Self.TblSalaryMst" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,71 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">{{modelheaderval}}</h4>
+        <hr />
+        <form [formGroup]="AddExpensesForm" (ngSubmit)="onSubmit()" action="#">
+
+            <div style="display:none">
+                <input type="text" [(ngModel)]="ExpensesId" formControlName="ExpensesId" style="display:none">
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label> Date </label>
+                    <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="ExpenseDate" formControlName="ExpenseDate" [ngClass]="{ 'is-invalid': submitted && fval.ExpenseDate.errors }">
+                    <div *ngIf="submitted && fval.ExpenseDate.errors" class="invalid-feedback">
+                        <div *ngIf="fval.ExpenseDate.errors.required">
+                            Date is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Expense Type</label>
+                    <select class="form-control" [(ngModel)]="Category" formControlName="Category" [ngClass]="{ 'is-invalid': submitted && fval.Category.errors }">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option value="Travel">Travel</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Equipments">Equipments</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <div *ngIf="submitted && fval.Category.errors" class="invalid-feedback">
+                        <div *ngIf="fval.Category.errors.required">
+                            Expense Type is required.
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="form-group col-md-4">
+                    <label>Sub Category</label>
+                    <input type="text" class="form-control" [(ngModel)]="SubCategory" formControlName="SubCategory" maxlength="10">
+                </div>
+                 
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label> Amount</label>
+                    <input type="text" class="form-control" [(ngModel)]="Amount" formControlName="Amount" (keypress)="numberOnly($event)" maxlength="10" [ngClass]="{ 'is-invalid': submitted && fval.Amount.errors }">
+                    <div *ngIf="submitted && fval.Amount.errors" class="invalid-feedback">
+                        <div *ngIf="fval.Amount.errors.required">
+                            Amount is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Description</label>
+                    <input type="text" class="form-control" [(ngModel)]="Description" formControlName="Description" maxlength="10">
+                </div>
+
+            </div>
+
+            <input type="submit" class="fadeIn fourth" value="{{btnVal}}">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+    </div>
+</div>

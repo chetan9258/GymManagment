@@ -1,0 +1,714 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
+/* BASIC */
+html {
+    /*background-color: #56baed;*/
+}
+
+header {
+    background-color: #cccccc;
+}
+
+.navBackColor {
+    background-color: #cccccc;
+}
+
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+}
+
+.loginFormDesign {
+    /*   background: linear-gradient(135deg, #00c3ff, #eeef1c);
+    background: linear-gradient(135deg, #fc00ff, #00dbde);
+    background-image: linear-gradient(135deg, #ff00ba 0%, #fae713 100%);
+    background-image: linear-gradient(150deg, #5a00ff 0%, #ff1ff7 100%, #ff1ff7 100%);*/
+    background-image: url('./assets/Login_BG.jpg');
+    height: 100vh;
+}
+
+.infoLabel{
+    font-weight:bold;
+    font-size:14px;
+    font-family:Calibri;
+}
+
+body {
+  /*  background: linear-gradient(135deg, #00c3ff, #eeef1c);
+    background: linear-gradient(135deg, #fc00ff, #00dbde);
+    background-image: linear-gradient(135deg, #ff00ba 0%, #fae713 100%);
+    background-image: linear-gradient(150deg, #5a00ff 0%, #ff1ff7 100%, #ff1ff7 100%);
+    min-height: 93vh*/
+  background-color:gainsboro;
+}
+
+/*a {
+  color: #92badd;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}*/
+
+h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 40px 8px 10px 8px;
+    color: #cccccc;
+}
+
+hr {
+    border: 0.5px solid red !important
+}
+
+.topPadding{
+    padding-top:1em;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 400;
+}
+/* STRUCTURE */
+
+.wrapper {
+    max-width: 95%;
+    margin: 50px auto
+}
+
+    .wrapper .card {
+        max-width: 400px;
+        min-height: 450px;
+        margin: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 15px;
+        cursor: pointer;
+        padding: 0.8rem
+    }
+
+        .wrapper .card a {
+            text-decoration: none;
+            color: #eee
+        }
+
+            .wrapper .card a:hover {
+                color: #fff
+            }
+
+        .wrapper .card .input-field {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #eee;
+            padding: 0.3rem
+        }
+
+            .wrapper .card .input-field input {
+                background-color: inherit
+            }
+
+                .wrapper .card .input-field input.form-control,
+                .wrapper .card .input-field input.form-control:focus {
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                    color: #eee
+                }
+
+            .wrapper .card .input-field button.btn {
+                color: #eee;
+                padding: 0rem;
+                padding-right: 0.5rem
+            }
+
+                .wrapper .card .input-field button.btn:hover {
+                    color: #fff
+                }
+
+                .wrapper .card .input-field button.btn:focus {
+                    border: none;
+                    outline: none;
+                    box-shadow: none
+                }
+
+            .wrapper .card .input-field input::placeholder {
+                color: #eee
+            }
+
+        .wrapper .card .option {
+            display: block;
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            user-select: none
+        }
+
+            .wrapper .card .option span.text-light-white:hover {
+                color: #fff
+            }
+
+            .wrapper .card .option input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0
+            }
+
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border-radius: 2px
+}
+
+.wrapper .card .option:hover input ~ .checkmark {
+    background-color: #f1f1f1
+}
+
+.wrapper .card .option input:checked ~ .checkmark {
+    border: none;
+    background-color: #333;
+    transition: 300ms ease-in-out all
+}
+
+.checkmark:after {
+    content: "\2713";
+    position: absolute;
+    display: none;
+    color: #fff;
+    font-size: 1rem
+}
+
+.wrapper .card .option input:checked ~ .checkmark:after {
+    display: block
+}
+
+.wrapper .card .option .checkmark:after {
+    left: 3px;
+    top: -3px;
+    width: 5px;
+    height: 10px
+}
+
+.wrapper .card .btn.btn-primary {
+    border-radius: 20px;
+    /*width: 100px;*/
+    background-color: #fff;
+    color: #333;
+    border: none
+}
+
+    .wrapper .card .btn.btn-primary:hover {
+        color: #fff;
+        background: #333
+    }
+
+    .wrapper .card .btn.btn-primary:focus {
+        border: none;
+        box-shadow: none
+    }
+
+.wrapper .card .text-light-white {
+    color: #ddd
+}
+
+.wrapper .card .line span.connect {
+    position: absolute;
+    top: -12px;
+    left: 33%;
+    color: #000;
+    padding: 0 0.3rem;
+    z-index: 100;
+    border-radius: 2px;
+    background-color: #fff
+}
+
+.wrapper .card .connections a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover
+}
+
+@media(max-width: 370px) {
+    .wrapper .card .line:after {
+        left: 27%
+    }
+}
+
+@media(max-width: 350px) {
+    .wrapper {
+        margin: 10px auto
+    }
+
+        .wrapper .card {
+            margin: 10px
+        }
+}
+
+ 
+
+
+/* TABS */
+
+h2.inactive {
+    color: #cccccc;
+}
+
+h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset] {
+    cursor:pointer;
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+        background-color: #39ace7;
+    }
+
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+
+input[type=text] {
+    /*width: 25%;
+  margin: 5px;*/
+}
+
+/*input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+  input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+  input[type=text]:placeholder {
+    color: #cccccc;
+  }*/
+
+/*input[type=number] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+  input[type=number]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+  input[type=number]:placeholder {
+    color: #cccccc;
+  }*/
+/*
+input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+  input[type=password]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+  input[type=password]:placeholder {
+    color: #cccccc;
+  }
+*/
+/*
+input[type=date] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+  input[type=date]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+  input[type=date]:placeholder {
+    color: #cccccc;
+  }
+
+*/
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+}
+
+.underlineHover:hover {
+    color: #0d0d0d;
+}
+
+    .underlineHover:hover:after {
+        width: 100%;
+    }
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+}
+
+#icon {
+    width: 60%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+ul {
+    list-style: none;
+    position: relative;
+}
+
+    ul li {
+        width: 150px;
+        float: left;
+        padding: 0px;
+    }
+
+a {
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: gainsboro;
+    color: #fff;
+}
+
+ 
+
+li li {
+    padding: 0px
+}
+
+ul ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+/*CSS modified here: when you hover over LI with sub-nav, it will display the UL in it.*/
+ul li:hover > ul {
+    visibility: visible;
+    /*display: none;*/
+    position: absolute;
+    z-index: 999;
+}
+
+a:hover {
+    /*background-color: #f4f4f4;*/
+    color: #fff;
+}
+
+jw-modal {
+    /* modals are hidden by default */
+    display: none;
+
+{
+    /* modal container fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* z-index must be higher than .jw-modal-background */
+    z-index: 1000;
+    /* enables scrolling for tall modals */
+    overflow: auto;
+
+
+{
+    padding: 20px;
+    background: #fff;
+    /* margin exposes part of the modal background */
+    margin: 40px;
+}
+
+}
+
+.jw-modal-background {
+    /* modal background fixed across whole screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* semi-transparent black  */
+    background-color: #000;
+    opacity: 0.75;
+    /* z-index must be below .jw-modal and above everything else  */
+    z-index: 900;
+}
+
+}
+
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+.divstyle {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: large;
+    font-family: inherit;
+}
+
+.rightValue {
+    font-size: smaller;
+}
+
+
+.picture1 {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.rptPicture {
+     
+    margin: 5px;
+    padding: 0;
+    border: 0;
+    display: block;
+    margin-left: auto;
+    cursor:pointer;
+}
+
+._grid
+{
+    margin-left:0px !important;
+}

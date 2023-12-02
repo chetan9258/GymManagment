@@ -1,0 +1,66 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">Send Message</h4>
+
+        <form [formGroup]="SendMsgForm" action="#" (ngSubmit)="onSubmit()">
+             
+            <div>
+                <hr />
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Select Member's Type'</label>
+                            <select formControlName="MbrType" [(ngModel)]="MbrType" class="form-control" (change)="showPersonalTrainingPlans($event.target.value)" [ngClass]="{ 'is-invalid': submitted && fval.MbrType.errors }">
+                                <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                                <option>Gym Members</option>
+                                <option>PT Members</option>
+                                <option>Trainers</option>
+                                <option>Managers</option>
+                            </select>
+                            <div *ngIf="submitted && fval.MbrType.errors" class="invalid-feedback">
+                                <div *ngIf="fval.MbrType.errors.required">
+                                    Member Types is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Select Member</label>
+                            <ng-multiselect-dropdown [placeholder]="'Select Members'"
+                                                     [settings]="dropdownSettings"
+                                                     [data]="_Members"
+                                                     [(ngModel)]="MbrId"
+                                                     (onSelect)="onItemSelect($event)"
+                                                     (onSelectAll)="onSelectAll($event)">
+                            </ng-multiselect-dropdown>
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Your Message</label>
+                        <textarea formControlName="MbrMessage" [(ngModel)]="MbrMessage" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.MbrMessages.errors }"></textarea>
+                        <div *ngIf="submitted && fval.MbrMessage.errors" class="invalid-feedback">
+                            <div *ngIf="fval.MbrMessage.errors.required">
+                                Your Message is required.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--<input type="submit" class="fadeIn fourth" value="Add">-->
+            <input type="submit" class="fadeIn fourth" value="Submit">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+    </div>
+</div>

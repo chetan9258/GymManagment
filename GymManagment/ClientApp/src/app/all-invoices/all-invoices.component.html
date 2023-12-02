@@ -1,0 +1,80 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+
+        <form [formGroup]="AddInvoiceForm" (ngSubmit)="onSubmit()" action="#">
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Select Year</label>
+                    <select formControlName="InvoiceYear" (change)="ShowMembersByYear($event.target.value)" [(ngModel)]="InvoiceYear" class="form-control">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Select Member</label>
+                    <select formControlName="MbrId" [(ngModel)]="MbrId" class="form-control" (change)="GetInvoiceList($event.target.value)">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option *ngFor="let mbr of _InvoiceMbrs" value={{mbr.MbrId}}>
+                            {{mbr.MbrName}}
+                        </option>
+                    </select>
+                     
+                </div>
+
+
+                <div class="form-group col-md-4">
+                    <label>Select Invoice</label>
+                    <select formControlName="MbrUserId" [(ngModel)]="MbrUserId" class="form-control" (change)="ShowInvoice($event.target.value)">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option *ngFor="let mbr of _InvoiceMbrsList" value={{mbr.MbrUserId}}>
+                            {{mbr.MembershipType}}
+                        </option>
+                    </select>
+                   
+                </div>
+            </div>
+
+            <div class="invoice"  *ngIf="DispayInvoice">
+                <div class="header">
+                    <h1>INVOICE</h1>
+                    <h2>Number: {{InvoiceNumber}}</h2>
+                </div>
+                <div class="client-details">
+                    <h3>Client Details:</h3>
+                    <p>{{GymName}}</p>
+                    <p>{{GymAddress}}</p>
+                    <p>{{GymContactNo}}</p>
+                </div>
+                <div class="invoice-details">
+                    <h3>Invoice Details</h3>
+                    <p>Date: {{PaidDt}}</p> 
+                </div>
+                <table class="invoice-table">
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>{{Serivice1}}</td>
+                        <td>{{PaidAmt}}</td>
+                    </tr>
+                    <!-- Add additional services as needed -->
+                </table>
+                <div class="total">
+                    <h3>Total: {{PaidAmt}}</h3>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+<app-nav-menu></app-nav-menu>
+<div class="wrapper fadeInDown">
+    <div>
+
+        <h3>Members Hisory</h3>
+        <form [formGroup]="MbrHistoryForm" (ngSubmit)="onSubmit()" action="#">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Select Member</label>
+                    <select formControlName="PtMemberId" [(ngModel)]="PtMemberId" class="form-control" (change)="showPersonalTrainingPlans($event.target.value)">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                        <option *ngFor="let mbr of _Members" value={{mbr.MbrId}}>
+                            {{mbr.MbrName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <ag-grid-angular style="width: 100%; height: 100%;"
+                         domLayout='autoHeight'
+                             class="ag-theme-alpine"
+                             [columnDefs]="columnDefs"
+                             (gridReady)="onGridReady($event)"
+                             [frameworkComponents]="frameworkComponents"
+                             [animateRows]="true"
+                             pagination="true"
+                             [rowData]="rowData"
+                             paginationPageSize="20">
+            </ag-grid-angular>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<app-nav-menu></app-nav-menu>
+<div class="wrapper fadeInDown">
+    <div>
+         <label>Members Payment</label>
+        <ag-grid-angular style="width: 100%; height: 100%;"
+                         domLayout='autoHeight'
+                         class="ag-theme-alpine"
+                         [columnDefs]="columnDefs"
+                         (gridReady)="onGridReady($event)" 
+                         [animateRows]="true"
+                         pagination="true"
+                         paginationPageSize="20">
+        </ag-grid-angular>
+    </div>
+</div>

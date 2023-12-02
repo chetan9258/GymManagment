@@ -1,0 +1,408 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">{{modelheaderval}}</h4>
+        <hr />
+
+        <form [formGroup]="AddEmpForm" (ngSubmit)="onSubmit()" action="#">
+
+            <div style="display:none">
+                <input type="text" [(ngModel)]="MbrId" formControlName="MbrId" style="display:none">
+                <input type="text" [(ngModel)]="MbrUserId" formControlName="MbrUserId" style="display:none">
+                <input type="text" [(ngModel)]="MbrShipId" formControlName="MbrShipId" style="display:none">
+                <input type="text" [(ngModel)]="sal_Id" formControlName="sal_Id" style="display:none">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label> Members Type</label>
+                    <select class="form-control" (change)="filterForeCasts($event.target.value)" [(ngModel)]="MbrTypeddl" formControlName="MbrType" [ngClass]="{ 'is-invalid': submitted && fval.MbrType.errors }">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                        <option value="Enquiry">Enquiry</option>
+                        <option value="GymMember">Gym Member</option>
+                        <option value="Trainer">Trainer</option>
+                        <option value="FloorManager">Floor Manager</option>
+                        <option value="Receptionist">Receptionist</option>
+                        <option value="officeboy">office boy</option>
+                        <!--<option value="PT">PT</option>-->
+                    </select>
+                    <div *ngIf="submitted && fval.MbrType.errors" class="invalid-feedback">
+                        <div *ngIf="fval.MbrType.errors.required">
+                            Members Type is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="MbrTypeddl != 'PT'">
+                <hr />
+                <div class="form-row ">
+                    <h5 class="mb-2">Personal Information</h5>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="name"> Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrName" formControlName="MbrName" [ngClass]="{ 'is-invalid': submitted && fval.MbrName.errors }">
+                        <div *ngIf="submitted && fval.MbrName.errors" class="invalid-feedback">
+                            <div *ngIf="fval.MbrName.errors.required">
+                                Full Name is required and must be a valid name
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Gender</label>
+
+                        <select formControlName="MbrGender" [(ngModel)]="MbrGender" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.MbrGender.errors }">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                            <option value="Male">Male</option>
+                            <option value="FeMale">FeMale</option>
+                        </select>
+                        <div *ngIf="submitted && fval.MbrGender.errors" class="invalid-feedback">
+                            <div *ngIf="fval.MbrGender.errors.required">
+                                Gender is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> DOB</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrDOB" formControlName="MbrDOB" (change)="onDOBSelect($event)">
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label> Mobile</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrMob" formControlName="MbrMob" (keypress)="numberOnly($event)" maxlength="10" [ngClass]="{ 'is-invalid': submitted && fval.MbrMob.errors }">
+                        <div *ngIf="submitted && fval.MbrMob.errors" class="invalid-feedback">
+                            <div *ngIf="fval.MbrMob.errors.required || fval.MbrMob.errors.maxlength || fval.MbrMob.errors.minlength">
+                                Mobile No is required
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Mobile 2</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrMob2" formControlName="MbrMob2" (keypress)="numberOnly($event)" maxlength="10">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Email</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrEmail" formControlName="MbrEmail">
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+
+
+                    <div class="form-group col-md-4">
+                        <label> Address</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrAddr" formControlName="MbrAddr">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> City</label>
+                        <select formControlName="MbrCity" [(ngModel)]="MbrCityddl" class="form-control">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Mumbai">Mumbai</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> State</label>
+                        <select formControlName="MbrState" [(ngModel)]="MbrStateddl" class="form-control">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                            <option value="Maharastra">Maharastra</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+
+                    <div class="form-group col-md-4">
+                        <label> Pincode</label>
+                        <input type="text" class="form-control" formControlName="MbrPincode" [(ngModel)]="MbrPincode" (keypress)="numberOnly($event)">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Enquiry Date </label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrDOE" formControlName="MbrDOE">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Description</label>
+                        <input type="text" class="form-control" formControlName="GeneralDesc" [(ngModel)]="GeneralDesc">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <div *ngIf="MbrTypeddl == 'Trainer' || MbrTypeddl == 'FloorManager'">
+                            <label> PT Charges </label>
+                            <input type="text" class="form-control" formControlName="MbrPTCharges" [(ngModel)]="MbrPTCharges" (keypress)="numberOnly($event)">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div *ngIf="MbrTypeddl != 'GymMember' && MbrTypeddl != 'PT' && MbrTypeddl != 'Enquiry'">
+                <hr />
+                <div class="form-row ">
+                    <h5 class="mb-2">Salary Information</h5>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Salary</label>
+                        <input type="text" class="form-control" formControlName="MbrSalary" [(ngModel)]="MbrSalary" (keypress)="numberOnly($event)">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Description</label>
+                        <input type="text" class="form-control" formControlName="SalDesc" [(ngModel)]="SalDesc">
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div *ngIf="MbrTypeddl == 'Trainer' || MbrTypeddl == 'FloorManager'">
+
+                <div class="form-row">
+                    <h5 class="mb-2">Certification Details</h5>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Certification Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrCertification" formControlName="MbrCertification">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Completion Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrCertificationDt" formControlName="MbrCertificationDt" name="MbrshipStartDt">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div *ngIf="MbrTypeddl == 'GymMember' ||MbrTypeddl == 'Trainer' || MbrTypeddl == 'FloorManager'">
+                <hr />
+                <div class="form-row ">
+                    <h5 class="mb-2">MemberShip Plan</h5>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Plan Name</label>
+
+                        <select formControlName="MbrPlans" [(ngModel)]="MbrPlansddl" class="form-control" (change)="showMemberShipPlan($event.target.value)">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                            <option *ngFor="let plan of _MbrPlans" value={{plan.MbrShipId}}>
+                                {{plan.MbrShipName}} -({{plan.MbrShipDurationInDays}})
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Amount</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrshipAmt" formControlName="MbrshipAmt" disabled>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Paid Amount</label>
+                        <input type="text" class="form-control" formControlName="MbrshipPaidAmt" [(ngModel)]="MbrshipPaidAmt">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Remaining Amount</label>
+                        <input type="text" class="form-control" formControlName="RemBalance" [(ngModel)]="RemBalance">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>MemberShip Days</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrshipDays" formControlName="MbrshipDays" disabled>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Start Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" (change)="onDateChange($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrshipStartDt" formControlName="MbrshipStartDt">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> End Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrshipEndDt" formControlName="MbrshipEndDt">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Paid By</label>
+                        <select class="form-control" formControlName="MbrPaidBy" [(ngModel)]="MbrPaidByddl">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                            <option value="Gpay">Gpay</option>
+                            <option value="PhonePay">PhonePay</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Paid Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" (change)="onDateChange($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="PaidDt" formControlName="PaidDt">
+
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label>Description</label>
+                        <input type="text" class="form-control" formControlName="MbrshipDesc" [(ngModel)]="MbrshipDesc">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Batch</label>
+                        <select class="form-control" formControlName="MbrBatch" [(ngModel)]="MbrBatch">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Evening">Evening</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <div *ngIf="MbrTypeddl == 'GymMember' || MbrTypeddl == 'PT'" style="display:none">
+                <!--hide for time bin-->
+                <hr />
+                <div class="form-row ">
+                    <h5 class="mb-2">Personal Training Plan</h5>
+                </div>
+                <div *ngIf="MbrTypeddl == 'PT'">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Select Member</label>
+                            <select formControlName="PtMemberId" [(ngModel)]="PtMemberId" class="form-control" (change)="showPersonalTrainingPlans($event.target.value)">
+                                <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                                <option *ngFor="let mbr of _PTMembers" value={{mbr.MbrId}}>
+                                    {{mbr.MbrName}}
+                                </option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>PT Traning Plan</label>
+                        <select formControlName="MbrPTPlanId" [(ngModel)]="MbrPTPlanId" class="form-control" (change)="showPersonalTrainingPlans($event.target.value)">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                            <option *ngFor="let plan of _MbrPlans" value={{plan.MbrShipId}}>
+                                {{plan.MbrShipName}} -({{plan.MbrShipDurationInDays}})
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Training Days</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrPtDays" formControlName="MbrPtDays" disabled>
+
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label>PT Trainer Name</label>
+                        <select formControlName="MbrPtTrainerId" [(ngModel)]="MbrPtTrainerId" class="form-control" (change)="showPTTrainerCharges($event.target.value)">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                            <option *ngFor="let plan of _PTTrainer" value={{plan.MbrId}}>
+                                {{plan.MbrName}}
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label>PT Charges</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrPTChargesofTrainer" formControlName="MbrPTChargesofTrainer" disabled>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Paid Amount</label>
+                        <input type="text" class="form-control" formControlName="MbrPTAmt" [(ngModel)]="MbrPTAmt">
+
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label> Paid By</label>
+                        <select class="form-control" formControlName="MbrPTAmtPaidBy" [(ngModel)]="MbrPTAmtPaidBy">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                            <option value="Gpay">Gpay</option>
+                            <option value="PhonePay">PhonePay</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Start Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrPTStartDt" formControlName="MbrPTStartDt">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> End Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="MbrPTEndDt" formControlName="MbrPTEndDt">
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Description</label>
+                        <input type="text" class="form-control" formControlName="MbrPTDesc" [(ngModel)]="MbrPTDesc">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!--<input type="submit" class="fadeIn fourth" value="Add">-->
+            <input type="submit" class="fadeIn fourth" value="{{btnVal}}">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+    </div>
+</div>

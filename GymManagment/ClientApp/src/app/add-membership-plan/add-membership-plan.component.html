@@ -1,0 +1,66 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">{{modelheaderval}}</h4>
+        <hr />
+
+        <form [formGroup]="AddPlanForm" (ngSubmit)="onSubmit()" action="#">
+            <div style="display:none">
+                <input type="text" [(ngModel)]="MbrShipId" formControlName="MbrShipId" style="display:none"> 
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="name">Plan Name</label>
+                    <input type="text" [(ngModel)]="MbrShipName" class="form-control" formControlName="MbrShipName" [ngClass]="{ 'is-invalid': submitted && fval.MbrShipName.errors }">
+                    <div *ngIf="submitted && fval.MbrShipName.errors" class="invalid-feedback">
+                        <div *ngIf="fval.MbrShipName.errors.required">
+                            Plan Name is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Amount </label>
+                    <input type="text" [(ngModel)]="MbrShipAmt" class="form-control" formControlName="MbrShipAmt" (keypress)="numberOnly($event)" [ngClass]="{ 'is-invalid': submitted && fval.MbrShipAmt.errors }">
+                    <div *ngIf="submitted && fval.MbrShipAmt.errors" class="invalid-feedback">
+                        <div *ngIf="fval.MbrShipAmt.errors.required">
+                            Please enter amount.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Duration (Days) </label>
+                    <input type="text" [(ngModel)]="MbrShipDurationInDays" class="form-control" formControlName="MbrShipDurationInDays" (keypress)="numberOnly($event)" [ngClass]="{ 'is-invalid': submitted && fval.MbrShipDurationInDays.errors }">
+                    <div *ngIf="submitted && fval.MbrShipDurationInDays.errors" class="invalid-feedback">
+                        <div *ngIf="fval.MbrShipDurationInDays.errors.required">
+                            Enter Plan Duration.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="name">Start Date</label>
+                    <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="StartDt" formControlName="StartDt">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> End Date</label>
+                    <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="EndDt" formControlName="EndDt">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Description </label>
+                    <input type="text" [(ngModel)]="Description" class="form-control" formControlName="Description" >
+                </div>
+            </div>
+              
+            <input type="submit" class="fadeIn fourth" value="{{btnVal}}">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+
+    </div>
+</div>

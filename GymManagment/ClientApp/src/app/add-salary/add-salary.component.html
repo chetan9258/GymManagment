@@ -1,0 +1,112 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">{{modelheaderval}}</h4>
+        <form [formGroup]="AddSalaryForm" (ngSubmit)="onSubmit()" action="#">
+
+            <div>
+                <hr />
+                <div class="form-row ">
+                    <h5 class="mb-2">Add Salary</h5>
+                </div>
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label> Member Name </label>
+                            <select formControlName="MbrId" [(ngModel)]="MbrId" class="form-control" (change)="ShowDesignations($event.target.value)" [ngClass]="{ 'is-invalid': submitted && fval.MbrId.errors }">
+                                <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                                <option *ngFor="let mbr of _SalMembers" value={{mbr.MbrId}}>
+                                    {{mbr.MbrName}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && fval.MbrId.errors" class="invalid-feedback">
+                                <div *ngIf="fval.MbrId.errors.required">
+                                    Member is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <label>Designation</label>
+                        <input type="text" class="form-control" [(ngModel)]="MbrDesignation" formControlName="MbrDesignation" disabled> 
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Salary Motnh</label>
+                        <select formControlName="SalMonth" [(ngModel)]="SalMonth" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.SalMonth.errors }">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                            <option value="Jan">January</option>
+                            <option value="Feb">Febrary</option>
+                            <option value="Mar">March</option>
+                            <option value="Apr">April</option>
+                            <option value="May">May</option>
+                            <option value="Jun">Jun</option>
+                            <option value="Jul">July</option>
+                            <option value="Aug">Augst</option>
+                            <option value="Sep">September</option>
+                            <option value="Oct">October</option>
+                            <option value="Nov">November</option>
+                            <option value="Dec">December</option>
+                        </select>
+                        <div *ngIf="submitted && fval.SalMonth.errors" class="invalid-feedback">
+                            <div *ngIf="fval.SalMonth.errors.required">
+                                Salary Month is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label> Paid Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="SalPaidDt" formControlName="SalPaidDt" [ngClass]="{ 'is-invalid': submitted && fval.SalPaidDt.errors }">
+                        <div *ngIf="submitted && fval.SalPaidDt.errors" class="invalid-feedback">
+                            <div *ngIf="fval.SalPaidDt.errors.required">
+                                Paid Date sis required.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label>Total Salary</label>
+                        <input type="text" class="form-control" [(ngModel)]="TotalSal" formControlName="TotalSal" disabled >
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Paid Salary</label>
+                        <input type="text" class="form-control" [(ngModel)]="PaidSal" formControlName="PaidSal" [ngClass]="{ 'is-invalid': submitted && fval.PaidSal.errors }">
+                        <div *ngIf="submitted && fval.PaidSal.errors" class="invalid-feedback">
+                            <div *ngIf="fval.PaidSal.errors.required">
+                                Paid Salary is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Total Leaves</label>
+                        <input type="text" class="form-control" [(ngModel)]="TotalLeaves" formControlName="TotalLeaves" value="0">
+                        
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Comment</label>
+                        <input type="text" class="form-control" [(ngModel)]="Comment" formControlName="Comment" >
+                        
+                    </div>
+
+                </div>
+            </div>
+
+            <!--<input type="submit" class="fadeIn fourth" value="Add">-->
+            <input type="submit" class="fadeIn fourth" value="{{btnVal}}">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+    </div>
+</div>

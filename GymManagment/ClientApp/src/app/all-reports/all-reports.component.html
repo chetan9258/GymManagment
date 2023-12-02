@@ -1,0 +1,77 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">Reports</h4>
+
+        <form [formGroup]="AllReportsForm" action="#" (ngSubmit)="onSubmit()">
+
+            <div>
+                <hr />
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <input type="radio" id="rdEyr" value="YearlyReport" name="allReports" (change)="OnReportChanges($event)">
+                            <label for="rdEyr">Member Yearly Report</label><br>
+                        </div>
+                        <!--<div class="form-group col-md-4">
+            <input type="radio" id="rdFR" value="FinantialReport" name="allReports" (change)="OnReportChanges($event)">
+            <label for="rdFR">Finantial Report</label><br>
+        </div>-->
+                        <div class="form-group col-md-4">
+                            <input type="radio" id="rdSummury" value="Summury" name="allReports" (change)="OnReportChanges($event)">
+                            <label for="rdSummury">Summury</label><br>
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <input type="radio" id="rdMr" value="MbrShipReport" name="allReports" (change)="OnReportChanges($event)">
+                            <label for="rdMr">Membership Report</label><br>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="radio" id="edPt" value="PersonalTraining" name="allReports" (change)="OnReportChanges($event)">
+                            <label for="edPt">Personal Training</label><br>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row" *ngIf="optionValue">
+                        <div class="form-group col-md-4">
+                            <label>Select Member</label>
+                            <select formControlName="MemberId" [(ngModel)]="MemberId" class="form-control"  >
+                                <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+                                <option *ngFor="let mbr of _Members" value={{mbr.MbrId}}>
+                                    {{mbr.MbrName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <input type="submit" class="fadeIn fourth" value="Submit">
+            </div>
+            <div>
+                <div class="form-row">
+                    <h3> Report</h3><br>
+                    <img (click)="exportToExcel()" src="./assets/excel-48.png"   class = "rptPicture"/>
+
+                </div>
+            </div>
+            <div>
+                <ag-grid-angular style="width: 100%; height: 100%;"
+                         domLayout='autoHeight'
+                                 class="ag-theme-alpine"
+                                 [columnDefs]="columnDefs"
+                                 [animateRows]="true"
+                                 (gridReady)="onGridReady($event)"
+                                 [rowData]="rowData"
+                                 pagination="true"
+                                 paginationPageSize="20">
+                </ag-grid-angular>
+            </div>
+
+        </form>
+    </div>
+</div>

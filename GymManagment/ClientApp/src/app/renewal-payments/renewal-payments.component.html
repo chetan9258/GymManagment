@@ -1,0 +1,120 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">Renewal Payment</h4>
+        <hr />
+        <form [formGroup]="RenewalPaymentForm" (ngSubmit)="onSubmit()" action="#">
+
+            <div style="display:none">
+                <input type="text" [(ngModel)]="MbrId" formControlName="MbrId" style="display:none">
+                <input type="text" [(ngModel)]="MembershipType" formControlName="MembershipType" style="display:none">
+                
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label>Member Name </label>
+                    <input type="text" class="form-control" [(ngModel)]="MbrName" formControlName="MbrName" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Batch</label>
+                    <select class="form-control" formControlName="MbrBatch" [(ngModel)]="MbrBatch">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Plan Name</label>
+
+                    <select formControlName="MbrShipId" [(ngModel)]="MbrShipId" class="form-control" (change)="showMemberShipPlan($event.target.value)" [ngClass]="{ 'is-invalid': submitted && fval.MbrShipId.errors }">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option *ngFor="let plan of _MbrPlans" value={{plan.MbrShipId}}>
+                            {{plan.MbrShipName}} -({{plan.MbrShipDurationInDays}})
+                        </option>
+                    </select>
+                    <div *ngIf="submitted && fval.MbrShipId.errors" class="invalid-feedback">
+                        <div *ngIf="fval.MbrShipId.errors.required">
+                            Plan is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label>Charges </label>
+                    <input type="text" class="form-control" [(ngModel)]="MbrShipCharges" formControlName="MbrShipCharges" disabled>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Days </label>
+                    <input type="text" class="form-control" [(ngModel)]="Days" formControlName="Days" disabled>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Paid Amount </label>
+                    <input type="text" class="form-control" [(ngModel)]="PaidAmt" formControlName="PaidAmt" [ngClass]="{ 'is-invalid': submitted && fval.PaidAmt.errors }">
+                    <div *ngIf="submitted && fval.PaidAmt.errors" class="invalid-feedback">
+                        <div *ngIf="fval.PaidAmt.errors.required">
+                            Paid Amount is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label> Paid By</label>
+                    <select class="form-control" formControlName="PaidBy" [(ngModel)]="PaidBy" [ngClass]="{ 'is-invalid': submitted && fval.PaidBy.errors }">
+                        <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                        <option value="Cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="Gpay">Gpay</option>
+                        <option value="PhonePay">PhonePay</option>
+                    </select>
+
+                    <div *ngIf="submitted && fval.PaidBy.errors" class="invalid-feedback" >
+                        <div *ngIf="fval.PaidBy.errors.required">
+                            Paid By is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Paid Date </label>
+                    <input type="date" class="form-control" [(ngModel)]="PaidDt" formControlName="PaidDt" [ngClass]="{ 'is-invalid': submitted && fval.PaidDt.errors }">
+                    <div *ngIf="submitted && fval.PaidDt.errors" class="invalid-feedback">
+                        <div *ngIf="fval.PaidDt.errors.required">
+                            Paid Date is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label> Start Date </label>
+                    <input type="date" class="form-control" [(ngModel)]="MbrshipStartDt" formControlName="MbrshipStartDt" (change)="onDateChange($event)" >
+                </div> 
+            </div>
+
+            <div class="form-row">
+                  
+                <div class="form-group col-md-4">
+                    <label> Expire Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="MbrshipEndDt" formControlName="MbrshipEndDt">
+                </div>
+            </div>
+
+            <input type="submit" class="fadeIn fourth" value="Renewed">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+    </div>
+</div>

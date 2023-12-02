@@ -1,0 +1,80 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+        <div class="container">
+            <div class="headerTitle">
+                <a class="navbar-brand" [routerLink]="['/Home']">Welcome {{GymName}}</a>
+            </div>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+                 [ngClass]="{ show: isExpanded }" style="width:70%">
+                <ul class="navbar-nav mr-auto horizontal">
+                    <li class="nav-item" [routerLinkActive]="['link-active']">
+                        <a class="nav-link">Gym Details</a>
+                        <ul class="navBackColor">
+                            <li>
+                                <a class="nav-link text-dark" [routerLink]="['/MbrPlans']">MemberShip Plans</a>
+
+                                <a class="nav-link text-dark" [routerLink]="['/MembershipHistory']"> Attendend</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['link-active']">
+                        <a class="nav-link ">Gym Member</a> 
+                        <ul class="navBackColor">
+                            <li>
+                                <a class="nav-link text-dark" [routerLink]="['/Employee']">Members</a>
+
+                                <a class="nav-link text-dark" [routerLink]="['/PTDetails']">Personal Training</a>
+
+                                <a class="nav-link text-dark" [routerLink]="['/RenewalMembership']">Renewal Memberships</a>
+
+                                <a class="nav-link text-dark" [routerLink]="['/RemainingBalance']">Remaining Balance</a>
+                                <div>
+                                    <a class="nav-link text-dark" [routerLink]="['/MembershipHistory']"> Members History</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['link-active']">
+                        <a class="nav-link">Account</a>
+                        <ul class="navBackColor">
+                            <li>
+                                <a class="nav-link text-dark" [routerLink]="['/GymExpenses']">Expenses</a>
+                                <!--<div *ngIf="isShown">-->
+                                    <a class="nav-link text-dark" [routerLink]="['/SalaryDetails']">Salary</a>
+                                <!--</div>-->
+                                <a class="nav-link text-dark" [routerLink]="['/AllInvoices']">All Invoices</a>
+
+                                <a class="nav-link text-dark" [routerLink]="['/AllReports']">Reports</a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['link-active']">
+                        <a class="nav-link">Profile</a>
+                        <ul class="navBackColor">
+                            <li>
+                                <a class="nav-link text-dark" [routerLink]="['/GymProfile']">Gym Profile</a> 
+
+                                <a class="nav-link text-dark" [routerLink]="['/AppSupport']">Support</a>
+
+                                <a class="nav-link text-dark" [routerLink]="['/SendMessage']">Send Message</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+                 [ngClass]="{ show: isExpanded }">
+                <ul class="navbar-nav mr-auto horizontal" style="text-align:center"> 
+                    <li class="rightli" [routerLinkActive]="['link-active']" > 
+                        <img   src="./assets/shutdown.png" class="picture1" (click)="logout()" />
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>

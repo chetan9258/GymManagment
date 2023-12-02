@@ -1,0 +1,74 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="wrapper fadeInDown">
+    <div class="p-2">
+        <h4 class="modal-title" id="modal-basic-title">Add Remaining Balance</h4>
+
+        <form [formGroup]="AddRemBalForm" (ngSubmit)="onSubmit()" action="#">
+
+            <div style="display:none">
+                <input type="text" [(ngModel)]="MbrId" formControlName="MbrId" style="display:none">
+                <input type="text" [(ngModel)]="MbrShipId" formControlName="MbrShipId" style="display:none">
+                <input type="text" [(ngModel)]="MembershipType" formControlName="MembershipType" style="display:none">
+                <input type="text" [(ngModel)]="MbrshipStartDt" formControlName="MbrshipStartDt" style="display:none">
+                <input type="text" [(ngModel)]="MbrshipEndDt" formControlName="MbrshipEndDt" style="display:none">
+            </div>
+             
+            <div>
+                <hr /> 
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Member Name</label> 
+                        <input type="text" class="form-control" [(ngModel)]="MbrName" formControlName="MbrName" disabled>
+                            
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Remaining Amount</label>
+                        <input type="text" class="form-control" [(ngModel)]="RemBalance" formControlName="RemBalance" disabled>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Paid Amount</label>
+                        <input type="text" class="form-control" formControlName="PaidAmt" [(ngModel)]="PaidAmt"> <!--(keypress)="BalanceAmount($event)"-->
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Balance Amount</label>
+                        <input type="text" class="form-control" formControlName="BalRemaining" [(ngModel)]="BalRemaining" >
+                    </div>
+                      
+                    <div class="form-group col-md-4">
+                        <label> Paid Date</label>
+                        <input type="date" (keypress)="numberOnly($event)" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" [(ngModel)]="PaidDt" formControlName="PaidDt">
+
+                    </div>
+                     
+                    <div class="form-group col-md-4">
+                        <label> Paid By</label>
+                        <select class="form-control" formControlName="PaidBy" [(ngModel)]="PaidByddl">
+                            <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                            <option value="Gpay">Gpay</option>
+                            <option value="PhonePay">PhonePay</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label>Description</label>
+                        <input type="text" class="form-control" formControlName="Discription" [(ngModel)]="Discription"> 
+                    </div> 
+                </div>
+            </div>
+
+        
+            <input type="submit" class="fadeIn fourth" value="Submit">
+            <input type="button" class="fadeIn fourth" (click)="onCancel()" value="Cancel">
+        </form>
+    </div>
+</div>

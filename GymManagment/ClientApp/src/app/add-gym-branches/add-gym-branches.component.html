@@ -1,0 +1,61 @@
+<app-nav-menu></app-nav-menu>
+
+<div class="p-2">
+    <h4 class="modal-title" id="modal-basic-title">Add Branch</h4>
+    <hr />
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="name">Branch Name</label>
+            <input type="text" [(ngModel)]="EmpName" class="form-control" formControlName="EmpName" name="EmpName">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label> Contact Person Name</label>
+            <input type="text" [(ngModel)]="EmpMob" class="form-control" formControlName="EmpMob" name="EmpMob" (keypress)="numberOnly($event)" maxlength="10">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label> Contact Number</label>
+            <input type="text" [(ngModel)]="EmpMob" class="form-control" formControlName="EmpMob" name="EmpMob" (keypress)="numberOnly($event)" maxlength="10">
+        </div>
+
+    </div>
+
+    <div class="form-row">
+
+
+        <div class="form-group col-md-4">
+            <label> Address </label>
+            <input type="text" [(ngModel)]="EmpMob" class="form-control" formControlName="EmpMob" name="EmpMob" (keypress)="numberOnly($event)" maxlength="10">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label> City</label>
+            <select [(ngModel)]="EmpCity" formControlName="EmpCity" name="EmpCity" class="form-control" (change)="filterForeCasts($event.target.value)">
+                <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                <option value="Pune" selected>Pune</option>
+                <option value="Mumbai">Mumbai</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label> State</label>
+            <select [(ngModel)]="EmpState" formControlName="EmpState" name="EmpState" class="form-control" (change)="filterForeCasts($event.target.value)">
+                <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
+
+                <option value="Maharastra" selected>Maharastra</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label> Pincode</label>
+            <input type="text" [(ngModel)]="EmpPincode" class="form-control" formControlName="EmpPincode" name="EmpPincode" (keypress)="numberOnly($event)">
+        </div>
+
+    </div>
+
+    <input type="submit" class="fadeIn fourth" value="Add">
+    <input type="submit" class="fadeIn fourth" value="Cancel">
+</div>

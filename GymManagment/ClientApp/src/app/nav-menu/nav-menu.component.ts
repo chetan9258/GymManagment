@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { isNull } from 'util';
-import { GymService } from '../services/gym.service';
-import { MatDialog } from '@angular/material/dialog';    
+import { GymService } from '../services/gym.service'; 
 
 @Component({
   selector: 'app-nav-menu',
@@ -13,7 +12,7 @@ export class NavMenuComponent {
     isShown: boolean = true;
     GymName: string;
 
-    constructor(private _router: Router, private gymServices: GymService, private dialogref: MatDialog) {
+    constructor(private _router: Router, private gymServices: GymService) {
 
     }
     visible = false;

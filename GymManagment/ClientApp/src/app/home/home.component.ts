@@ -12,12 +12,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
-    private gridApi1;
-    private gridColumnApi1;
-    private columnDefs1;
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
+    public gridApi1;
+    public gridColumnApi1;
+    public columnDefs1;
     closeResult: string;
     IsSessionEnable: boolean;
     GymMember: any=0;

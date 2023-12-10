@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
     loginform: FormGroup;
+    MobileNo: any;
+    submitted: any;
 
     constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router) { } /*, public nav: NavMenuComponent*/
 

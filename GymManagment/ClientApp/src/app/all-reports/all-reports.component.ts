@@ -25,10 +25,10 @@ export class AllReportsComponent implements OnInit {
     IsSessionEnable: any;
     AllReportsForm: FormGroup;
     rdValue: any;
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
-    private rowData;
+    public  gridApi;
+    public gridColumnApi;
+    public columnDefs;
+    public rowData;
     MemberId: string;
     optionValue: boolean = false;
     _Members: GymMembersClass[] = [];

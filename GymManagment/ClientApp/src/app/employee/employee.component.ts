@@ -14,10 +14,10 @@ import { BtnCellRendererComponent } from '../btn-cell-renderer/btn-cell-renderer
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
-    private rowData;
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
+    public rowData;
     frameworkComponents: any;
     closeResult: string;
     IsSessionEnable: boolean;

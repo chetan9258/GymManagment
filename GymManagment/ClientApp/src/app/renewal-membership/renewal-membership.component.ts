@@ -13,9 +13,9 @@ import { BtnRendererComponent } from '../Renders/btn-renderer.component';
   styleUrls: ['./renewal-membership.component.css']
 })
 export class RenewalMembershipComponent implements OnInit {
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
     frameworkComponents: any;
     closeResult: string;
     IsSessionEnable: boolean;

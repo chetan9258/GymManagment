@@ -12,7 +12,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Select Member's Type'</label>
-                            <select formControlName="MbrType" [(ngModel)]="MbrType" class="form-control" (change)="showPersonalTrainingPlans($event.target.value)" [ngClass]="{ 'is-invalid': submitted && fval.MbrType.errors }">
+                            <select formControlName="MbrType" [(ngModel)]="MbrType" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.MbrType.errors }">
                                 <option class="dropdown-item" disabled selected value="undefined">-- Select --</option>
 
                                 <option>Gym Members</option>

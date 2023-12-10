@@ -4,7 +4,7 @@
     <div class="p-2">
         <h4 class="modal-title" id="modal-basic-title">Profile</h4>
         <hr />
-        <form [formGroup]="GymProfileForm" (ngSubmit)="onSubmit()" action="#">
+        <form [formGroup]="GymProfileForm" action="#">
             <div style="display:none">
                 <input type="text" [(ngModel)]="GymProfileId" formControlName="GymProfileId" style="display:none">
             </div>

@@ -2,7 +2,7 @@
 <div class="wrapper fadeInDown">
     <div>
         <div style="margin-bottom:5px">
-            <button class="btn-info" (click)="onBtnClick()">Add MemberShip Plan</button>
+            <button class="btn-info" (click)="onBtnClick(this)">Add MemberShip Plan</button>
         </div>
         <ag-grid-angular style="width: 100%; height: 100%;"
                          domLayout='autoHeight'
@@ -11,8 +11,7 @@
                          (gridReady)="onGridReady($event)"
                          [frameworkComponents]="frameworkComponents"
                          [animateRows]="true"
-                         pagination="true"
-                         [rowData]="rowData"
+                         pagination="true" 
                          paginationPageSize="20">
         </ag-grid-angular>
     </div>

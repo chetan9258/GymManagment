@@ -15,13 +15,13 @@ import { BtnCellRendererComponent } from '../btn-cell-renderer/btn-cell-renderer
 })
 export class GymExpensesComponent implements OnInit {
 
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
     frameworkComponents: any;
     closeResult: string;
     IsSessionEnable: boolean;
-    private rowData;
+    public rowData;
     constructor(private gymServices: GymService, private _router: Router, public route: ActivatedRoute) {
         this.frameworkComponents = {
             buttonRenderer: BtnCellRendererComponent,

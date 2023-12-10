@@ -152,6 +152,15 @@ export class AddPTDetailsComponent implements OnInit {
     onCancel() {
         return this._router.navigate(["/PTDetails"]);
     }
+
+    numberOnly(event): boolean {
+        const charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 46 || charCode > 57)) {
+            return false;
+        }
+        return true;
+
+    }
   
     GetAllMemberShipPlan() {
         this.gymServices.GetAllMemberShipPlan().subscribe(res => {

@@ -11,6 +11,7 @@ import { GymService } from '../services/gym.service';
 export class NavMenuComponent {
     isShown: boolean = true;
     GymName: string;
+    isExpanded: any;
 
     constructor(private _router: Router, private gymServices: GymService) {
 

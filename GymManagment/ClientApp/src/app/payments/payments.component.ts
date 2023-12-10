@@ -14,9 +14,9 @@ import { BtnCellRendererComponent } from '../btn-cell-renderer/btn-cell-renderer
 })
 export class PaymentsComponent implements OnInit {
 
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs; 
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
     closeResult: string;
     IsSessionEnable: boolean;
 

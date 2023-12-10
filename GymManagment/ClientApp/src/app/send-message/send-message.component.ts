@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { GymService } from '../services/gym.service';
 import { Router, ActivatedRoute } from '@angular/router'; 
-import { isNull } from 'util';
 import { GymMembersClass } from '../Models/GymMembersClass';
-import {  IDropdownSettings } from 'ng-multiselect-dropdown';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { isNull } from 'util';
 
 @Component({
     selector: 'app-send-message',
@@ -24,6 +24,7 @@ export class SendMessageComponent implements OnInit {
    
     MbrType: any;
     MbrMessage: any;
+    MbrId: any;
     constructor(public formBuilder: FormBuilder, private _router: Router, private gymServices: GymService) {
 
     }
@@ -64,6 +65,9 @@ export class SendMessageComponent implements OnInit {
 
             }, error => alert(error.message))
         }
+    }
+    onCancel() {
+
     }
 
     onItemSelect(item: any) {

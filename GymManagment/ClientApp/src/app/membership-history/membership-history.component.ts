@@ -17,12 +17,12 @@ import { GymMembersClass } from '../Models/GymMembersClass';
 export class MembershipHistoryComponent implements OnInit {
 
     MbrHistoryForm: FormGroup;
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
     frameworkComponents: any;
     closeResult: string;
-    private rowData;
+    public rowData;
     PtMemberId: string;
     _Members: GymMembersClass[] = [];
     IsSessionEnable: boolean;

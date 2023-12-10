@@ -15,14 +15,14 @@ export class SalaryMasterComponent implements OnInit {
 
     SalaryDetailsForm: FormGroup;
 
-    private gridApi;
-    private gridColumnApi;
-    private columnDefs;
+    public gridApi;
+    public gridColumnApi;
+    public columnDefs;
     frameworkComponents: any;
     closeResult: string;
     IsSessionEnable: boolean;
     chkMbr: any;
-    private rowData;
+    public rowData;
     _Members: GymMembersClass[] = [];
     isShown: boolean = false; // hidden by default
     MemberId: string;

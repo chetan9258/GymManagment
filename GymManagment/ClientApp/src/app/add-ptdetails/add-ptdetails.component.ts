@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -21,7 +21,7 @@ import { DatePipe } from '@angular/common'
 })
 export class AddPTDetailsComponent implements OnInit {
 
-    AddPTForm: FormGroup;
+    AddPTForm: UntypedFormGroup;
     _PTMembers: GymMembersClass[] = [];
     _PTTrainer: GymMembersClass[] = [];
     _MbrPlans: MbrShipPlanClass[] = [];
@@ -46,7 +46,7 @@ export class AddPTDetailsComponent implements OnInit {
     modelheaderval: any;
     IsSessionEnable: any;
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, public route: ActivatedRoute, public datepipe: DatePipe) {
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, public route: ActivatedRoute, public datepipe: DatePipe) {
 
     }
 

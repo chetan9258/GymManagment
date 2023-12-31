@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -21,7 +21,7 @@ import { DatePipe } from '@angular/common'
 })
 export class RenewalPaymentsComponent implements OnInit {
 
-    RenewalPaymentForm: FormGroup;
+    RenewalPaymentForm: UntypedFormGroup;
     _MbrPlans: MbrShipPlanClass[] = [];
 
     MbrId: string;
@@ -40,7 +40,7 @@ export class RenewalPaymentsComponent implements OnInit {
     date: Date;
     IsSessionEnable : boolean;
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, public route: ActivatedRoute, public datepipe: DatePipe) { }
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, public route: ActivatedRoute, public datepipe: DatePipe) { }
 
     ngOnInit() {
 

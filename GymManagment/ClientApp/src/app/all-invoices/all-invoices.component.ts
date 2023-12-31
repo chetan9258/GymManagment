@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -21,7 +21,7 @@ import { DatePipe } from '@angular/common'
 })
 export class AllInvoicesComponent implements OnInit {
 
-    AddInvoiceForm: FormGroup;
+    AddInvoiceForm: UntypedFormGroup;
     _InvoiceMbrs: GymMembersClass[] = [];
     _InvoiceMbrsList: MbrShipPlanUserClass[] = [];
      
@@ -38,7 +38,7 @@ export class AllInvoicesComponent implements OnInit {
     MbrUserId: any;
     DispayInvoice: any = false;
      
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, private datePipe: DatePipe) { }
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, private datePipe: DatePipe) { }
 
     ngOnInit() {
         this.IsSessionEnable = this.gymServices.CheckToken();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SupportComponent implements OnInit {
 
-    AppSuportForm: FormGroup;
+    AppSuportForm: UntypedFormGroup;
     submitted = false;
     SupportName: string;
     SupportContact: string;
@@ -19,7 +19,7 @@ export class SupportComponent implements OnInit {
     SupportBody: string; 
     IsSessionEnable: any;
 
-    constructor(public formBuilder: FormBuilder, private _router: Router, private gymServices: GymService) {
+    constructor(public formBuilder: UntypedFormBuilder, private _router: Router, private gymServices: GymService) {
          
     }
 

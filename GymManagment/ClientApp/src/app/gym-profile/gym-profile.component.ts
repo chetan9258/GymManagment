@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -20,7 +20,7 @@ import { GymMembersClass } from '../Models/GymMembersClass';
 })
 export class GymProfileComponent implements OnInit {
 
-    GymProfileForm: FormGroup;
+    GymProfileForm: UntypedFormGroup;
     submitted = false;
 
     GymProfileId: string;
@@ -46,7 +46,7 @@ export class GymProfileComponent implements OnInit {
     btnValue: string ;
     isShown: boolean = false; // hidden by default
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, public route: ActivatedRoute) { }
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, public route: ActivatedRoute) { }
 
     ngOnInit() {
 

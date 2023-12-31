@@ -43,9 +43,6 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AllReportsComponent } from './all-reports/all-reports.component';
 import { AddSalaryComponent } from './add-salary/add-salary.component';  
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
-  
-/*import { NgbModule } from '@ng-bootstrap/ng-bootstrap';*/
  
 @NgModule({
     declarations: [
@@ -82,7 +79,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
         SupportComponent,
         SendMessageComponent,
         AllReportsComponent,
-        AddSalaryComponent, 
+        AddSalaryComponent,
         ForgotPasswordComponent
     ],
     imports: [
@@ -92,7 +89,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
         BrowserAnimationsModule,
         NgxChartsModule,
         ReactiveFormsModule, 
-        //NgbModule,
         AgGridModule.withComponents([BtnCellRendererComponent, BtnRendererComponent, EditBtnRendererComponent]),
         RouterModule.forRoot([
             { path: '', component: LoginComponent },
@@ -121,16 +117,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
             { path: 'AddSalary', component: AddSalaryComponent },
             { path: 'SalaryDetails', component: SalaryMasterComponent },
             { path: 'ForgotPassword', component: ForgotPasswordComponent },
-
-             
         ]),
         NgMultiSelectDropDownModule.forRoot()
-
-        
-
     ],
     providers: [DatePipe],
-    entryComponents: [BtnCellRendererComponent, BtnRendererComponent, EditBtnRendererComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }      

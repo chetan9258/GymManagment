@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -16,7 +16,7 @@ import { GymMembersClass } from '../Models/GymMembersClass';
 })
 export class MembershipHistoryComponent implements OnInit {
 
-    MbrHistoryForm: FormGroup;
+    MbrHistoryForm: UntypedFormGroup;
     public gridApi;
     public gridColumnApi;
     public columnDefs;
@@ -27,7 +27,7 @@ export class MembershipHistoryComponent implements OnInit {
     _Members: GymMembersClass[] = [];
     IsSessionEnable: boolean;
 
-    constructor(private gymServices: GymService, private _router: Router, public route: ActivatedRoute, public formBuilder: FormBuilder) {
+    constructor(private gymServices: GymService, private _router: Router, public route: ActivatedRoute, public formBuilder: UntypedFormBuilder) {
         this.frameworkComponents = {
             buttonRenderer: BtnCellRendererComponent,
         }

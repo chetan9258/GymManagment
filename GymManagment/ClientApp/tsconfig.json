@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "target": "es2017",
     "downlevelIteration": true,
-    "importHelpers": true,
+    "importHelpers": true, 
     "typeRoots": [
       "node_modules/@types"
     ],

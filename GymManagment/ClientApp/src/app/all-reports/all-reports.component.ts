@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -23,7 +23,7 @@ import * as XLSX from 'xlsx';
 })
 export class AllReportsComponent implements OnInit {
     IsSessionEnable: any;
-    AllReportsForm: FormGroup;
+    AllReportsForm: UntypedFormGroup;
     rdValue: any;
     public  gridApi;
     public gridColumnApi;
@@ -33,7 +33,7 @@ export class AllReportsComponent implements OnInit {
     optionValue: boolean = false;
     _Members: GymMembersClass[] = [];
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router) {
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router) {
         this.columnDefs = [
 
             {

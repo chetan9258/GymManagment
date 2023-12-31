@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -18,7 +18,7 @@ import { MbrShipPlanClass } from '../Models/mbr-ship-plan-class.model';
 })
 export class AddMembershipPlanComponent implements OnInit {
 
-    AddPlanForm: FormGroup;
+    AddPlanForm: UntypedFormGroup;
     submitted = false;
 
     MbrShipId: string;
@@ -33,7 +33,7 @@ export class AddMembershipPlanComponent implements OnInit {
     modelheaderval: any;
     IsSessionEnable: any;
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, public route: ActivatedRoute) { }
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, public route: ActivatedRoute) { }
 
     ngOnInit() {
 

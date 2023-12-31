@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { isNull } from 'util';
 import { GymService } from '../services/gym.service';
@@ -10,9 +10,9 @@ import { GymService } from '../services/gym.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-    ForgotPasswordform: FormGroup;
+    ForgotPasswordform: UntypedFormGroup;
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router) { }
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router) { }
 
     ngOnInit() {
         /*this.nav.hide();*/

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { GymService } from '../services/gym.service';
 import { first } from 'rxjs/operators';
 import { isNull } from 'util';
@@ -19,7 +19,7 @@ import { GymMembersClass } from '../Models/GymMembersClass';
 })
 export class AddRemainingBalanceComponent implements OnInit {
 
-    AddRemBalForm: FormGroup;
+    AddRemBalForm: UntypedFormGroup;
     _PTMembers: GymMembersClass[] = [];
     _PTTrainer: GymMembersClass[] = [];
     _MbrPlans: MbrShipPlanClass[] = [];
@@ -39,7 +39,7 @@ export class AddRemainingBalanceComponent implements OnInit {
     MbrshipEndDt: string;
     IsSessionEnable: boolean;
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, public route: ActivatedRoute) {
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, public route: ActivatedRoute) {
 
     }
 

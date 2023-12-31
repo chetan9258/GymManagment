@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'; 
 import { GymService } from '../services/gym.service';
 import { Router, ActivatedRoute } from '@angular/router'; 
 import { GymMembersClass } from '../Models/GymMembersClass';
@@ -17,7 +17,7 @@ export class SendMessageComponent implements OnInit {
     selectedItems = []; 
     dropdownSettings: IDropdownSettings;
 
-    SendMsgForm: FormGroup;
+    SendMsgForm: UntypedFormGroup;
     submitted = false;
     _Members: GymMembersClass[] = [];
     IsSessionEnable: any;
@@ -25,7 +25,7 @@ export class SendMessageComponent implements OnInit {
     MbrType: any;
     MbrMessage: any;
     MbrId: any;
-    constructor(public formBuilder: FormBuilder, private _router: Router, private gymServices: GymService) {
+    constructor(public formBuilder: UntypedFormBuilder, private _router: Router, private gymServices: GymService) {
 
     }
 

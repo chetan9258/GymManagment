@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isNull } from 'util';
 import { BtnCellRendererComponent } from '../btn-cell-renderer/btn-cell-renderer.component';
@@ -13,7 +13,7 @@ import { GymService } from '../services/gym.service';
 })
 export class SalaryMasterComponent implements OnInit {
 
-    SalaryDetailsForm: FormGroup;
+    SalaryDetailsForm: UntypedFormGroup;
 
     public gridApi;
     public gridColumnApi;
@@ -28,7 +28,7 @@ export class SalaryMasterComponent implements OnInit {
     MemberId: string;
 
 
-    constructor(private gymServices: GymService, private _router: Router, public route: ActivatedRoute, public formBuilder: FormBuilder) {
+    constructor(private gymServices: GymService, private _router: Router, public route: ActivatedRoute, public formBuilder: UntypedFormBuilder) {
         this.frameworkComponents = {
             buttonRenderer: BtnCellRendererComponent,
         }

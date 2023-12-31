@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isNull } from 'util';
 import { GymMembersClass } from '../Models/GymMembersClass';
@@ -12,7 +12,7 @@ import { GymService } from '../services/gym.service';
 })
 export class AddSalaryComponent implements OnInit {
 
-    AddSalaryForm: FormGroup;
+    AddSalaryForm: UntypedFormGroup;
     _SalMembers: GymMembersClass[] = [];
 
     submitted = false;
@@ -30,7 +30,7 @@ export class AddSalaryComponent implements OnInit {
     modelheaderval: any;
     IsSessionEnable: any;
 
-    constructor(private gymServices: GymService, public formBuilder: FormBuilder, private _router: Router, public route: ActivatedRoute) { }
+    constructor(private gymServices: GymService, public formBuilder: UntypedFormBuilder, private _router: Router, public route: ActivatedRoute) { }
 
     ngOnInit() {
 
